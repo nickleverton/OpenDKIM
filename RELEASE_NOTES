@@ -13,6 +13,9 @@ release, and a summary of the changes in that release.
 	Make odkim.internal_ip() available to all Lua hooks.  Problem noted
 		by Iosif Fettich.
 	Make bind code DNSSEC-aware.  Patch from Jack Bates.
+	Upgrade to OpenSSL 3. Using non-deprecated APIs in OpenSSL 3, but
+		already present in OpenSSL 1.1.1. Patch by David Bürgin
+		(PR #162)
 	Fix dkimf_db_nextpunct() so it doesn't incorrectly identify an encoded
 		hex digit as a value delimiter.
 	Fix issue #8: The password file critical section isn't big enough.
