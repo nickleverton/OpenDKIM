@@ -46,6 +46,9 @@ release, and a summary of the changes in that release.
 	Fix an issue on DNS query on getting public key, it had failed if
 		the response contained DNAME type RR. Patch from
 		Andreas Jobs (PR #156)
+	Fix a bug in Lua script interface, fix stack level after register
+		odkim functions when using Lua >= 5.2. Patch from
+		Yasuhito Futatsuki. (PR #201)
 	CONFIG: Add compatibility with openssl-1.1.0.  Patch from
 		Scott Kitterman.
 	CONFIG: Add missing ReplaceHeaders definition. Patch from
