@@ -32,6 +32,9 @@ release, and a summary of the changes in that release.
 	Fix bug #237: Fix processing of "SoftStart".
 	CONFIG: Add compatibility with openssl-1.1.0.  Patch from
 		Scott Kitterman.
+	CONFIG: Add missing ReplaceHeaders definition. Patch from
+                Toby Ovod-Everett, Reported again by Harald Dunkel,
+		GitHub PR by David Bürgin (SF bug #257; PR #125)
 	CONTRIB: Simplfy some logic in contrib/repute.  Patch from
 		Dilyan Palauzov.
 	LIBOPENDKIM: Feature request #190: Reject signature object requests
