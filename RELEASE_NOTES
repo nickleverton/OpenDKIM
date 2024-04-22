@@ -60,6 +60,10 @@ release, and a summary of the changes in that release.
 		were not being properly handled.
 	TOOLS: Feature requrest #187: Add option to match subdomains when
 		generating zone files.  Patch from Andreas Schulze.
+	TOOLS: opendkim-genkey: Use a functional test for OpenSSL ed25519
+		support rather than a hardcoded openssl version check, for
+		openssl 3.0+ compatibility. Patch from Geert Hendrickx.
+		(PR #135)
 
 2.10.3		2015/05/12
 	LIBOPENDKIM: Make strict header checking non-destructive.  The last
