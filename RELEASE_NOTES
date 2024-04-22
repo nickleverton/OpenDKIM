@@ -39,6 +39,10 @@ release, and a summary of the changes in that release.
 	Fix issue #128: Reorder mlfi_close logic fixing use-after-free error
 		Reported by @apircalabu on GitHub, Patch by David Bürgin
 		(PR #129).
+	Fix issue #148: Delete Authentication-Results headers in reverse.
+		This fixes the bug on "KeepAuthResults = no" that opendkim
+		cannot remove headers correctly (CVE-2022-48521).
+		Patch from David Bürgin (PR #189).
 	CONFIG: Add compatibility with openssl-1.1.0.  Patch from
 		Scott Kitterman.
 	CONFIG: Add missing ReplaceHeaders definition. Patch from
