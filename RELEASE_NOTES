@@ -30,6 +30,9 @@ release, and a summary of the changes in that release.
 	Fix bug #235: Quote "header.b" values in case they contain a slash
 		(which must be quoted).
 	Fix bug #237: Fix processing of "SoftStart".
+	Fix issue #24: Insert initial headers like Authentication-Results
+		before the MTA’s Received header. Patch from @fanto666
+		on GitHub, PR by David Bürgin (PR #126)
 	CONFIG: Add compatibility with openssl-1.1.0.  Patch from
 		Scott Kitterman.
 	CONFIG: Add missing ReplaceHeaders definition. Patch from
