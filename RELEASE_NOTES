@@ -32,7 +32,10 @@ release, and a summary of the changes in that release.
 	Fix bug #237: Fix processing of "SoftStart".
 	Fix issue #24: Insert initial headers like Authentication-Results
 		before the MTA’s Received header. Patch from @fanto666
-		on GitHub, PR by David Bürgin (PR #126)
+		on GitHub, PR by David Bürgin (PR #126).
+	Fix issue #128: Reorder mlfi_close logic fixing use-after-free error
+		Reported by @apircalabu on GitHub, Patch by David Bürgin
+		(PR #129).
 	CONFIG: Add compatibility with openssl-1.1.0.  Patch from
 		Scott Kitterman.
 	CONFIG: Add missing ReplaceHeaders definition. Patch from
