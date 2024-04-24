@@ -77,6 +77,8 @@ release, and a summary of the changes in that release.
 		Patch from Michael Orlitzky (PR #170).
 	BUILD: Fix function signature of main() in configure. Patch from
 		Michael Orlitzky (PR #171).
+	BUILD: Fix pkgconfig names of Cyrus SASL and OpenLDAP in configure.
+		Patch from Michael Orlitzky (PR #192).
 	TOOLS: Feature requrest #187: Add option to match subdomains when
 		generating zone files.  Patch from Andreas Schulze.
 	TOOLS: opendkim-genkey: Use a functional test for OpenSSL ed25519
