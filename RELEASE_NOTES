@@ -51,6 +51,8 @@ release, and a summary of the changes in that release.
 		Yasuhito Futatsuki. (PR #201)
 	Fix function signature of vbr_strlcpy in libvbr Patch from
 		Michael Orlitzky (PR #171).
+	Fix sample script screen.lua.sample, off-by-one error and
+		typo in function name. Patch from link2xt (PR #195)
 	CONFIG: Add compatibility with openssl-1.1.0.  Patch from
 		Scott Kitterman.
 	CONFIG: Add missing ReplaceHeaders definition. Patch from
