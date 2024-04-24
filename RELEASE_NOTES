@@ -49,6 +49,8 @@ release, and a summary of the changes in that release.
 	Fix a bug in Lua script interface, fix stack level after register
 		odkim functions when using Lua >= 5.2. Patch from
 		Yasuhito Futatsuki. (PR #201)
+	Fix function signature of vbr_strlcpy in libvbr Patch from
+		Michael Orlitzky (PR #171).
 	CONFIG: Add compatibility with openssl-1.1.0.  Patch from
 		Scott Kitterman.
 	CONFIG: Add missing ReplaceHeaders definition. Patch from
@@ -73,6 +75,8 @@ release, and a summary of the changes in that release.
 		were not being properly handled.
 	LIBOPENDKIM: Fix implicit function declaration for snprintf.
 		Patch from Michael Orlitzky (PR #170).
+	BUILD: Fix function signature of main() in configure. Patch from
+		Michael Orlitzky (PR #171).
 	TOOLS: Feature requrest #187: Add option to match subdomains when
 		generating zone files.  Patch from Andreas Schulze.
 	TOOLS: opendkim-genkey: Use a functional test for OpenSSL ed25519
