@@ -59,6 +59,10 @@ release, and a summary of the changes in that release.
 		as a valid syntax. Patch from Yasuhito Futatsuki (PR #205)
 	Fix issue #191: odkim.del_header should delete the actual requested
 		header number. Patch by Benoit Branciard (PR #212).
+	Fix issue #213: The Lua final policy script functions odkim.add_rcpt,
+		odkim.del_rcpt, odkim.del_header and odkim.quarantine
+		can actually work regardless of other configuration
+		parameters. Patch from Benoit Branciard (PR #211).
 	CONFIG: Add compatibility with openssl-1.1.0.  Patch from
 		Scott Kitterman.
 	CONFIG: Add missing ReplaceHeaders definition. Patch from
