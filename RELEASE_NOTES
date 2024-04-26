@@ -86,6 +86,10 @@ release, and a summary of the changes in that release.
 	LIBOPENDKIM: Expose conversion table between internal code already
 		provided as DKIM_ macros and their literal name in C string.
 		Patch from Yasuhito Futatsuki (PR #207).
+	LIBOPENDKIM: Extend dkim_test_key() to allow testing a ed25519 key,
+		as dkim_test_key2(). For API compatibility, function interface
+		of dkim_test_key() is not changed, but it only calls
+		dkim_test_key2(). Patch from Yasuhito Futatsuki.
 	BUILD: Fix function signature of main() in configure. Patch from
 		Michael Orlitzky (PR #171).
 	BUILD: Fix pkgconfig names of Cyrus SASL and OpenLDAP in configure.
@@ -99,6 +103,8 @@ release, and a summary of the changes in that release.
 		support rather than a hardcoded openssl version check, for
 		openssl 3.0+ compatibility. Patch from Geert Hendrickx.
 		(PR #135)
+	TOOLS: issue #183: On opendkim-testkey, add support for ed25519 keys.
+		Patch from Yasuhito Futatsuki.
 
 2.10.3		2015/05/12
 	LIBOPENDKIM: Make strict header checking non-destructive.  The last
