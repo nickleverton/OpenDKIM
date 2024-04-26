@@ -63,6 +63,8 @@ release, and a summary of the changes in that release.
 		odkim.del_rcpt, odkim.del_header and odkim.quarantine
 		can actually work regardless of other configuration
 		parameters. Patch from Benoit Branciard (PR #211).
+	Fix a bug on usage of struct dkimf_dstring type in mlfi_eoh().
+		Patch from Michael Orlitzky (PR #214).
 	CONFIG: Add compatibility with openssl-1.1.0.  Patch from
 		Scott Kitterman.
 	CONFIG: Add missing ReplaceHeaders definition. Patch from
