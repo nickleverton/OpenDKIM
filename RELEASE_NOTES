@@ -17,7 +17,7 @@ release, and a summary of the changes in that release.
 		already present in OpenSSL 1.1.1. Patch by David Bürgin
 		(PR #162)
 	Extend KeyTable to specify signing algorithm.
-		Patch from Yasuhito Futatsuki.
+		Patch from Yasuhito Futatsuki. (PR #202)
 	Fix dkimf_db_nextpunct() so it doesn't incorrectly identify an encoded
 		hex digit as a value delimiter.
 	Fix issue #8: The password file critical section isn't big enough.
@@ -85,6 +85,7 @@ release, and a summary of the changes in that release.
 		Patch from Michael Orlitzky (PR #170).
 	LIBOPENDKIM: Expose conversion table between internal code already
 		provided as DKIM_ macros and their literal name in C string.
+		Patch from Yasuhito Futatsuki (PR #207).
 	BUILD: Fix function signature of main() in configure. Patch from
 		Michael Orlitzky (PR #171).
 	BUILD: Fix pkgconfig names of Cyrus SASL and OpenLDAP in configure.
