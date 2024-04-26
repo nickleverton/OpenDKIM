@@ -55,6 +55,8 @@ release, and a summary of the changes in that release.
 		typo in function name. Patch from link2xt (PR #195)
 	Fix AR header parser so that accept "no-result" result
 		as a valid syntax. Patch from Yasuhito Futatsuki (PR #205)
+	Fix issue #191: odkim.del_header should delete the actual requested
+		header number. Patch by Benoit Branciard (PR #212).
 	CONFIG: Add compatibility with openssl-1.1.0.  Patch from
 		Scott Kitterman.
 	CONFIG: Add missing ReplaceHeaders definition. Patch from
