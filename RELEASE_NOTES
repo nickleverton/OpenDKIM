@@ -81,6 +81,9 @@ release, and a summary of the changes in that release.
 		Michael Orlitzky (PR #171).
 	BUILD: Fix pkgconfig names of Cyrus SASL and OpenLDAP in configure.
 		Patch from Michael Orlitzky (PR #192).
+	BUILD: Fix issue #203: include header files required by resolv.h
+		before use it in res_ninit detection in configure.
+		Patch from Yasuhito Futatsuki (PR #204).
 	TOOLS: Feature requrest #187: Add option to match subdomains when
 		generating zone files.  Patch from Andreas Schulze.
 	TOOLS: opendkim-genkey: Use a functional test for OpenSSL ed25519
