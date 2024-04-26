@@ -81,6 +81,8 @@ release, and a summary of the changes in that release.
 		were not being properly handled.
 	LIBOPENDKIM: Fix implicit function declaration for snprintf.
 		Patch from Michael Orlitzky (PR #170).
+	LIBOPENDKIM: Expose conversion table between internal code already
+		provided as DKIM_ macros and their literal name in C string.
 	BUILD: Fix function signature of main() in configure. Patch from
 		Michael Orlitzky (PR #171).
 	BUILD: Fix pkgconfig names of Cyrus SASL and OpenLDAP in configure.
