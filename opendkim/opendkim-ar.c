@@ -663,7 +663,7 @@ ares_parse(u_char *hdr, struct authres *ar)
 			break;
 
 		  case 15:				/* terminal state after no-result */
-			/* no token should not appear */
+			/* any token should not appear */
 			return -1;
 		}
 	}
