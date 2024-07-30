@@ -103,6 +103,8 @@ release, and a summary of the changes in that release.
 	BUILD: Fix issue #203: include header files required by resolv.h
 		before use it in res_ninit detection in configure.
 		Patch from Yasuhito Futatsuki (PR #204).
+	BUILD: libvbr/vbr.c: include <stdio.h> for vsnprintf().
+		Patch from Michael Orlitzky (PR #220).
 	TOOLS: Feature requrest #187: Add option to match subdomains when
 		generating zone files.  Patch from Andreas Schulze.
 	TOOLS: opendkim-genkey: Use a functional test for OpenSSL ed25519
