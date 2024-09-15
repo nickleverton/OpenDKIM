@@ -8336,7 +8336,7 @@ dkimf_config_load(struct config *data, struct dkimf_config *conf,
 		*/
 
 #ifdef USE_ODBX
-		if (conf->conf_signtabledb != NULL && conf->conf_checksigningtable == TRUE)
+		if (conf->conf_signtabledb != NULL && conf->conf_checksigningtable != FALSE)
 #else /* USE_ODBX */
 		if (conf->conf_signtabledb != NULL)
 #endif /* USE_ODBX */
