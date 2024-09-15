@@ -137,7 +137,7 @@
 #endif /* _FFR_REPUTATION */
 
 /* macros */
-#define CMDLINEOPTS	"Ab:c:d:De:fF:k:lL:no:p:P:Qrs:S:t:T:u:vVWx:X?"
+#define CMDLINEOPTS	"Ab:Cc:d:De:fF:k:lL:no:p:P:Qrs:S:t:T:u:vVWx:X?"
 
 #ifndef MIN
 # define MIN(x,y)	((x) < (y) ? (x) : (y))
@@ -15480,6 +15480,7 @@ usage(void)
 	                "\t-A          \tauto-restart\n"
 	                "\t-b modes    \tselect operating modes\n"
 	                "\t-c canon    \tcanonicalization to use when signing\n"
+	                "\t-C          \tdo not walk SigningTable when loading config\n"
 	                "\t-d domlist  \tdomains to sign\n"
 	                "\t-D          \talso sign subdomains\n"
 	                "\t-e name     \textract configuration value and exit\n"
@@ -15610,6 +15611,10 @@ main(int argc, char **argv)
 			if (optarg == NULL || *optarg == '\0')
 				return usage();
 			curconf->conf_canonstr = optarg;
+			break;
+
+		  case 'C':
+			curconf->conf_checksigningtable = FALSE;
 			break;
 
 		  case 'd':
