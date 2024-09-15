@@ -181,7 +181,7 @@ is not also set.
 
 .TP
 .I CheckSigningTable (Boolean)
-If set to yes, it walks the database on boot when it loads the config
+If set to yes, it walks the SigningTable on boot when it loads the config
 file to check for missing keys in KeyTable.  The default is yes.
 
 .TP
