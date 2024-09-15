@@ -254,6 +254,9 @@ struct dkimf_config
 #ifdef USE_LDAP
 	_Bool		conf_ldap_usetls;	/* LDAP TLS */
 #endif /* USE_LDAP */
+#ifdef USE_ODBX
+	_Bool		conf_checksigningtable; /* skip checking keys on startup */
+#endif /* USE_ODBX */
 #ifdef _FFR_VBR
 	_Bool		conf_vbr_purge;		/* purge X-VBR-* fields */
 	_Bool		conf_vbr_trustedonly;	/* trusted certifiers only */
@@ -5882,6 +5885,9 @@ dkimf_config_new(void)
 	new->conf_atpshash = dkimf_atpshash[0].str;
 #endif /* _FFR_ATPS */
 	new->conf_selectcanonhdr = SELECTCANONHDR;
+#ifdef USE_ODBX
+	new->conf_checksigningtable = TRUE;
+#endif /* USE_ODBX */
 
 	memcpy(&new->conf_handling, &defaults, sizeof new->conf_handling);
 
@@ -6198,6 +6204,12 @@ dkimf_config_load(struct config *data, struct dkimf_config *conf,
 		                  &conf->conf_softstart,
 		                  sizeof conf->conf_softstart);
 #endif /* (USE_LDAP || USE_ODBX) */
+
+#ifdef USE_ODBX
+		(void) config_get(data, "CheckSigningTable",
+		                  &conf->conf_checksigningtable,
+		                  sizeof conf->conf_checksigningtable);
+#endif /* USE_ODBX */
 
 		(void) config_get(data, "DNSConnect",
 		                  &conf->conf_dnsconnect,
@@ -8323,7 +8335,11 @@ dkimf_config_load(struct config *data, struct dkimf_config *conf,
 		**  missing KeyTable entries.
 		*/
 
+#ifdef USE_ODBX
+		if (conf->conf_signtabledb != NULL && conf->conf_checksigningtable == TRUE)
+#else /* USE_ODBX */
 		if (conf->conf_signtabledb != NULL)
+#endif /* USE_ODBX */
 		{
 			_Bool first = TRUE;
 			_Bool found;

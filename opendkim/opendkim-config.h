@@ -44,6 +44,9 @@ struct configdef dkimf_config[] =
 	{ "Canonicalization",		CONFIG_TYPE_STRING,	FALSE },
 	{ "CaptureUnknownErrors",	CONFIG_TYPE_BOOLEAN,	FALSE },
 	{ "ChangeRootDirectory",	CONFIG_TYPE_STRING,	FALSE },
+#ifdef USE_ODBX
+	{ "CheckSigningTable",		CONFIG_TYPE_BOOLEAN,	FALSE },
+#endif /* USE_ODBX*/
 	{ "ClockDrift",			CONFIG_TYPE_INTEGER,	FALSE },
 #ifdef _FFR_CONDITIONAL
 	{ "ConditionalSignatures",	CONFIG_TYPE_STRING,	FALSE },
