@@ -137,7 +137,7 @@
 #endif /* _FFR_REPUTATION */
 
 /* macros */
-#define CMDLINEOPTS	"Ab:Cc:d:De:fF:k:lL:no:p:P:Qrs:S:t:T:u:vVWx:X?"
+#define CMDLINEOPTS	"Ab:c:d:De:fF:gk:lL:no:p:P:Qrs:S:t:T:u:vVWx:X?"
 
 #ifndef MIN
 # define MIN(x,y)	((x) < (y) ? (x) : (y))
@@ -15470,12 +15470,12 @@ usage(void)
 	                "\t-A          \tauto-restart\n"
 	                "\t-b modes    \tselect operating modes\n"
 	                "\t-c canon    \tcanonicalization to use when signing\n"
-	                "\t-C          \tdo not walk SigningTable when loading config\n"
 	                "\t-d domlist  \tdomains to sign\n"
 	                "\t-D          \talso sign subdomains\n"
 	                "\t-e name     \textract configuration value and exit\n"
 	                "\t-f          \tdon't fork-and-exit\n"
 	                "\t-F time     \tfixed timestamp to use when signing (test mode only)\n"
+	                "\t-g          \tdo not walk SigningTable when loading config\n"
 	                "\t-k keyfile  \tlocation of secret key file\n"
 	                "\t-l          \tlog activity to system log\n"
 	                "\t-L limit    \tsignature limit requirements\n"
@@ -15603,10 +15603,6 @@ main(int argc, char **argv)
 			curconf->conf_canonstr = optarg;
 			break;
 
-		  case 'C':
-			curconf->conf_checksigningtable = FALSE;
-			break;
-
 		  case 'd':
 			if (optarg == NULL || *optarg == '\0')
 				return usage();
@@ -15654,6 +15650,11 @@ main(int argc, char **argv)
 				return EX_USAGE;
 			}
 			break;
+
+		  case 'g':
+			curconf->conf_checksigningtable = FALSE;
+			break;
+
 
 		  case 'k':
 			if (optarg == NULL || *optarg == '\0')
