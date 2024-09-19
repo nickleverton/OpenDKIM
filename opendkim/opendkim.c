@@ -137,7 +137,7 @@
 #endif /* _FFR_REPUTATION */
 
 /* macros */
-#define CMDLINEOPTS	"Ab:c:d:De:fF:k:lL:no:p:P:Qrs:S:t:T:u:vVWx:X?"
+#define CMDLINEOPTS	"Ab:c:d:De:fF:gk:lL:no:p:P:Qrs:S:t:T:u:vVWx:X?"
 
 #ifndef MIN
 # define MIN(x,y)	((x) < (y) ? (x) : (y))
@@ -248,6 +248,7 @@ struct dkimf_config
 	_Bool		conf_noheaderb;		/* suppress "header.b" */
 	_Bool		conf_singleauthres;	/* single Auth-Results */
 	_Bool		conf_safekeys;		/* check key permissions */
+	_Bool		conf_checksigningtable; /* skip checking keys on startup */
 #ifdef _FFR_RESIGN
 	_Bool		conf_resignall;		/* resign unverified mail */
 #endif /* _FFR_RESIGN */
@@ -5892,6 +5893,7 @@ dkimf_config_new(void)
 	new->conf_atpshash = dkimf_atpshash[0].str;
 #endif /* _FFR_ATPS */
 	new->conf_selectcanonhdr = SELECTCANONHDR;
+	new->conf_checksigningtable = TRUE;
 
 	memcpy(&new->conf_handling, &defaults, sizeof new->conf_handling);
 
@@ -6208,6 +6210,10 @@ dkimf_config_load(struct config *data, struct dkimf_config *conf,
 		                  &conf->conf_softstart,
 		                  sizeof conf->conf_softstart);
 #endif /* (USE_LDAP || USE_ODBX) */
+
+		(void) config_get(data, "CheckSigningTable",
+		                  &conf->conf_checksigningtable,
+		                  sizeof conf->conf_checksigningtable);
 
 		(void) config_get(data, "DNSConnect",
 		                  &conf->conf_dnsconnect,
@@ -8333,7 +8339,7 @@ dkimf_config_load(struct config *data, struct dkimf_config *conf,
 		**  missing KeyTable entries.
 		*/
 
-		if (conf->conf_signtabledb != NULL)
+		if (conf->conf_signtabledb != NULL && conf->conf_checksigningtable != FALSE)
 		{
 			_Bool first = TRUE;
 			_Bool found;
@@ -15508,6 +15514,7 @@ usage(void)
 	                "\t-e name     \textract configuration value and exit\n"
 	                "\t-f          \tdon't fork-and-exit\n"
 	                "\t-F time     \tfixed timestamp to use when signing (test mode only)\n"
+	                "\t-g          \tdo not walk SigningTable when loading config\n"
 	                "\t-k keyfile  \tlocation of secret key file\n"
 	                "\t-l          \tlog activity to system log\n"
 	                "\t-L limit    \tsignature limit requirements\n"
@@ -15686,6 +15693,11 @@ main(int argc, char **argv)
 				return EX_USAGE;
 			}
 			break;
+
+		  case 'g':
+			curconf->conf_checksigningtable = FALSE;
+			break;
+
 
 		  case 'k':
 			if (optarg == NULL || *optarg == '\0')
