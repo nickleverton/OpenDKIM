@@ -283,9 +283,8 @@ forks and exits immediately, leaving the service running in the background.
 This flag suppresses that behaviour so that it runs in the foreground.
 .TP
 .I \-g
-Skip checking each row in the SigningTable for any missing keys in the
-KeyTable.  This is the same as setting CheckSigningTable=no in 
-opendkim.conf(5).
+Skip checking the SigningTable for any missing keys in the KeyTable.  This 
+is the same as setting CheckSigningTable=no in opendkim.conf(5).
 .TP
 .I \-F time
 Specifies a fixed time to use when generating signatures.  Ignored unless
