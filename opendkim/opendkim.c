@@ -15655,7 +15655,6 @@ main(int argc, char **argv)
 			curconf->conf_checksigningtable = FALSE;
 			break;
 
-
 		  case 'k':
 			if (optarg == NULL || *optarg == '\0')
 				return usage();
