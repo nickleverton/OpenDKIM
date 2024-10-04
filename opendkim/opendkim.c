@@ -8324,7 +8324,7 @@ dkimf_config_load(struct config *data, struct dkimf_config *conf,
 		*/
 
 		if (conf->conf_signtabledb != NULL &&
-		    dkimf_can_db_walk(conf->conf_signtabledb))
+		    dkimf_db_can_walk(conf->conf_signtabledb))
 		{
 			_Bool first = TRUE;
 			_Bool found;

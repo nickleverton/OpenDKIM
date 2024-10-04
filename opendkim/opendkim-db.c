@@ -5806,7 +5806,7 @@ dkimf_db_strerror(DKIMF_DB db, char *err, size_t errlen)
 }
 
 /*
-**  DKIMF_CAN_DB_WALK -- check if the db supports dkimf_db_walk operation
+**  DKIMF_DB_CAN_WALK -- check if the db supports dkimf_db_walk operation
 **
 **  Parameters:
 **  	db -- database
@@ -5817,7 +5817,7 @@ dkimf_db_strerror(DKIMF_DB db, char *err, size_t errlen)
 */
 
 _Bool
-dkimf_can_db_walk(DKIMF_DB db)
+dkimf_db_can_walk(DKIMF_DB db)
 {
 	switch (db->db_type)
 	{
