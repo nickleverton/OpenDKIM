@@ -5806,6 +5806,32 @@ dkimf_db_strerror(DKIMF_DB db, char *err, size_t errlen)
 }
 
 /*
+**  DKIMF_CAN_DB_WALK -- check if the db supports dkimf_db_walk operation
+**
+**  Parameters:
+**  	db -- database
+**
+**  Return value:
+**  	TRUE  -- suppots
+**  	FALSE -- does not support
+*/
+
+_Bool
+dkimf_can_db_walk(DKIMF_DB db)
+{
+	switch (db->db_type)
+	{
+	  case DKIMF_DB_TYPE_REFILE:
+	  case DKIMF_DB_TYPE_SOCKET:
+	  case DKIMF_DB_TYPE_LUA:
+	  case DKIMF_DB_TYPE_MEMCACHE:
+	  case DKIMF_DB_TYPE_UNKNOWN:
+		return FALSE;
+	}
+	return TRUE;
+}
+
+/*
 **  DKIMF_DB_WALK -- walk a database
 **
 **  Parameters:
