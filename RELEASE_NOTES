@@ -18,6 +18,10 @@ release, and a summary of the changes in that release.
 		(PR #162)
 	Extend KeyTable to specify signing algorithm.
 		Patch from Yasuhito Futatsuki. (PR #202)
+	Add config file option CheckSigningTable to determine if it check
+		the content of SigningTable on loading config file,
+		and command line option to force turning off the option.
+		Patch from @r-a-z-v-a-n on GitHub (PR #228)
 	Fix dkimf_db_nextpunct() so it doesn't incorrectly identify an encoded
 		hex digit as a value delimiter.
 	Fix issue #8: The password file critical section isn't big enough.
@@ -68,6 +72,8 @@ release, and a summary of the changes in that release.
 		parameters. Patch from Benoit Branciard (PR #211).
 	Fix a bug on usage of struct dkimf_dstring type in mlfi_eoh().
 		Patch from Michael Orlitzky (PR #214).
+	Fix crash on config load when specify a memchache as SigningTable.
+		Patch from Yasuhito Futatsuki (PR #219).
 	CONFIG: Add compatibility with openssl-1.1.0.  Patch from
 		Scott Kitterman.
 	CONFIG: Add missing ReplaceHeaders definition. Patch from
