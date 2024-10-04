@@ -5819,6 +5819,8 @@ dkimf_db_strerror(DKIMF_DB db, char *err, size_t errlen)
 _Bool
 dkimf_db_can_walk(DKIMF_DB db)
 {
+	assert(db != NULL);
+
 	switch (db->db_type)
 	{
 	  case DKIMF_DB_TYPE_REFILE:
