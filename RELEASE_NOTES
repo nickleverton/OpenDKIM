@@ -74,6 +74,9 @@ release, and a summary of the changes in that release.
 		Patch from Michael Orlitzky (PR #214).
 	Fix crash on config load when specify a memchache as SigningTable.
 		Patch from Yasuhito Futatsuki (PR #219).
+	Fix issue #229: The consistency check of SigningTable and KeyTable
+		on loading config load work correctly.
+		Patch from Yasuhito Futatsuki (PR #230).
 	CONFIG: Add compatibility with openssl-1.1.0.  Patch from
 		Scott Kitterman.
 	CONFIG: Add missing ReplaceHeaders definition. Patch from
