@@ -7,6 +7,7 @@
 [\-A]
 [\-b modes]
 [\-c canon]
+[\-C|\-g]
 [\-d domain[,...]]
 [\-D]
 [\-e name]
@@ -262,6 +263,14 @@ The value may include two different canonicalizations separated by a
 slash ("/") character, in which case the first will be applied to the
 headers and the second to the body.
 .TP
+.I \-C
+Do check of the SigningTable for any missing keys in the KeyTable on
+loading config file.  This overrides config option CheckSigningTable in
+.I opendkim.conf(5).
+In conjunction with
+.I \-n
+option described below, you can perform the check only.
+.TP
 .I \-d dataset
 A set of domains whose mail should be signed by this filter.  Mail from
 other domains will be verified rather than being signed.
@@ -283,8 +292,9 @@ forks and exits immediately, leaving the service running in the background.
 This flag suppresses that behaviour so that it runs in the foreground.
 .TP
 .I \-g
-Skip checking the SigningTable for any missing keys in the KeyTable.  This 
-is the same as setting CheckSigningTable=no in opendkim.conf(5).
+Skip check of the SigningTable for any missing keys in the KeyTable.
+This overrides the config option CheckSigningTable in
+-I opendkim.conf(5).
 .TP
 .I \-F time
 Specifies a fixed time to use when generating signatures.  Ignored unless
