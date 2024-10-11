@@ -137,7 +137,7 @@
 #endif /* _FFR_REPUTATION */
 
 /* macros */
-#define CMDLINEOPTS	"Ab:c:Cd:De:fF:gk:lL:no:p:P:Qrs:S:t:T:u:vVWx:X?"
+#define CMDLINEOPTS	"Ab:c:d:De:fF:Ggk:lL:no:p:P:Qrs:S:t:T:u:vVWx:X?"
 
 #ifndef MIN
 # define MIN(x,y)	((x) < (y) ? (x) : (y))
@@ -248,7 +248,7 @@ struct dkimf_config
 	_Bool		conf_noheaderb;		/* suppress "header.b" */
 	_Bool		conf_singleauthres;	/* single Auth-Results */
 	_Bool		conf_safekeys;		/* check key permissions */
-	_Bool		conf_checksigningtable; /* skip checking keys on dkimf_config_load */
+	_Bool		conf_checksigningtable; /* check keys on dkimf_config_load */
 #ifdef _FFR_RESIGN
 	_Bool		conf_resignall;		/* resign unverified mail */
 #endif /* _FFR_RESIGN */
@@ -750,8 +750,8 @@ _Bool reload;					/* reload requested */
 _Bool no_i_whine;				/* noted ${i} is undefined */
 _Bool testmode;					/* test mode */
 _Bool allowdeprecated;				/* allow deprecated config values */
-_Bool init_checksigningtable;	/* initializing value for CheckSigningTable */
-_Bool use_cf_checksigningtable;	/* use CheckSigningTable on config file? */
+_Bool init_checksigningtable;			/* initializing value for CheckSigningTable */
+_Bool use_cf_checksigningtable;			/* use CheckSigningTable on config file? */
 #ifdef QUERY_CACHE
 _Bool querycache;				/* local query cache */
 #endif /* QUERY_CACHE */
@@ -15474,7 +15474,7 @@ usage(void)
 	                "\t-A          \tauto-restart\n"
 	                "\t-b modes    \tselect operating modes\n"
 	                "\t-c canon    \tcanonicalization to use when signing\n"
-	                "\t-C          \tdo walk SigningTable when loading config\n"
+	                "\t-G          \tforce walk SigningTable when loading config\n"
 	                "\t-d domlist  \tdomains to sign\n"
 	                "\t-D          \talso sign subdomains\n"
 	                "\t-e name     \textract configuration value and exit\n"
@@ -15610,12 +15610,6 @@ main(int argc, char **argv)
 			curconf->conf_canonstr = optarg;
 			break;
 
-		  case 'C':
-			use_cf_checksigningtable = FALSE;
-			init_checksigningtable = TRUE;
-			curconf->conf_checksigningtable = TRUE;
-			break;
-
 		  case 'd':
 			if (optarg == NULL || *optarg == '\0')
 				return usage();
@@ -15668,6 +15662,12 @@ main(int argc, char **argv)
 			use_cf_checksigningtable = FALSE;
 			init_checksigningtable = FALSE;
 			curconf->conf_checksigningtable = FALSE;
+			break;
+
+		  case 'G':
+			use_cf_checksigningtable = FALSE;
+			init_checksigningtable = TRUE;
+			curconf->conf_checksigningtable = TRUE;
 			break;
 
 		  case 'k':

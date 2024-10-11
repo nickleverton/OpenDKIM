@@ -7,7 +7,7 @@
 [\-A]
 [\-b modes]
 [\-c canon]
-[\-C|\-g]
+[\-G|\-g]
 [\-d domain[,...]]
 [\-D]
 [\-e name]
@@ -263,8 +263,8 @@ The value may include two different canonicalizations separated by a
 slash ("/") character, in which case the first will be applied to the
 headers and the second to the body.
 .TP
-.I \-C
-Do check of the SigningTable for any missing keys in the KeyTable on
+.I \-G
+Walk the SigningTable for any missing keys in the KeyTable on
 loading config file.  This overrides config option CheckSigningTable in
 .I opendkim.conf(5).
 In conjunction with
@@ -292,7 +292,7 @@ forks and exits immediately, leaving the service running in the background.
 This flag suppresses that behaviour so that it runs in the foreground.
 .TP
 .I \-g
-Skip check of the SigningTable for any missing keys in the KeyTable.
+Skip walking the SigningTable for any missing keys in the KeyTable.
 This overrides the config option CheckSigningTable in
 -I opendkim.conf(5).
 .TP
