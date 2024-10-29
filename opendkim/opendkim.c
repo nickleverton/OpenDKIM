@@ -10638,6 +10638,7 @@ dkimf_ar_all_sigs(char *hdr, size_t hdrlen, struct dkimf_dstring *tmpstr,
 
 		for (c = 0; c < nsigs; c++)
 		{
+			unsigned int sigflag;
 			dnssec = NULL;
 
 			memset(comment, '\0', sizeof comment);
@@ -10659,7 +10660,12 @@ dkimf_ar_all_sigs(char *hdr, size_t hdrlen, struct dkimf_dstring *tmpstr,
 				                           &ssl);
 			}
 
-			if ((dkim_sig_getflags(sigs[c]) & DKIM_SIGFLAG_PASSED) != 0 &&
+			sigflag = dkim_sig_getflags(sigs[c]);
+			if (sigflag & DKIM_SIGFLAG_IGNORE)
+			{
+				result = "policy";
+			}
+			else if ((sigflag & DKIM_SIGFLAG_PASSED) != 0 &&
 			    dkim_sig_getbh(sigs[c]) == DKIM_SIGBH_MATCH)
 			{
 				result = "pass";
@@ -10683,8 +10689,8 @@ dkimf_ar_all_sigs(char *hdr, size_t hdrlen, struct dkimf_dstring *tmpstr,
 					         " reason=\"%s\"", err);
 				}
 			}
-			else if ((dkim_sig_getflags(sigs[c]) & DKIM_SIGFLAG_PROCESSED) != 0 &&
-			         ((dkim_sig_getflags(sigs[c]) & DKIM_SIGFLAG_PASSED) == 0 ||
+			else if ((sigflag & DKIM_SIGFLAG_PROCESSED) != 0 &&
+			         ((sigflag & DKIM_SIGFLAG_PASSED) == 0 ||
 			          dkim_sig_getbh(sigs[c]) != DKIM_SIGBH_MATCH))
 			{
 				const char *err;
