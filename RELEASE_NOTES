@@ -77,6 +77,9 @@ release, and a summary of the changes in that release.
 	Fix issue #229: The consistency check of SigningTable and KeyTable
 		on loading config load work correctly.
 		Patch from Yasuhito Futatsuki (PR #230).
+	Avoid undefined behavior of strlcpy, which resulting improperly
+		signing when using the SubDomains feature in some environment.
+		Patch from @aafbsd on Github (PR #239)
 	CONFIG: Add compatibility with openssl-1.1.0.  Patch from
 		Scott Kitterman.
 	CONFIG: Add missing ReplaceHeaders definition. Patch from
