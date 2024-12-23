@@ -12364,10 +12364,14 @@ mlfi_eoh(SMFICTX *ctx)
 
 				if (domainok)
 				{
-					// We must not use strlcpy() here since
-					// src and dst overlap.
-					char* p2 = dfc->mctx_domain;
-					while( (*p2++ = *p++) );
+					/*
+					** We must not use strlcpy() here since
+					** src and dst overlap.
+					*/
+					char* p2 = (char *) dfc->mctx_domain;
+					while ((*p2++ = *p++))
+					{
+					}
 					break;
 				}
 			}
