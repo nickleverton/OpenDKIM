@@ -91,6 +91,8 @@ release, and a summary of the changes in that release.
 		GitHub PR by David Bürgin (SF bug #257; PR #125)
 	CONTRIB: Simplfy some logic in contrib/repute.  Patch from
 		Dilyan Palauzov.
+	CONTRIB: Remove uses of twisted.internet.defer.returnValue
+		in contrib/repute.  Patch from Povilas Kanapickas (PR #237)
 	LIBOPENDKIM: Feature request #190: Reject signature object requests
 		where the domain name or selector includes non-printable
 		characters.  Suggested by Franck Martin.
