@@ -46,3 +46,5 @@ symbols.map
 core
 *.core
 gmon.out
+*.log
+*.trs
